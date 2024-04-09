@@ -6,7 +6,6 @@ import com.betrybe.museumfinder.model.Coordinate;
  * This record representing a Dto the creation museum class.
  */
 public record MuseumCreationDto(
-    Long id,
     String name,
     String description,
     String address,
