@@ -13,11 +13,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class HandleControllerException {
 
-  @ExceptionHandler(RuntimeException.class)
-  public ResponseEntity<String> handleGenericInternalServerErro() {
-    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro interno!");
-  }
-
   @ExceptionHandler(InvalidCoordinateException.class)
   public ResponseEntity<String> handleBadRequest(RuntimeException e) {
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Coordenada inválida!");
@@ -26,6 +21,11 @@ public class HandleControllerException {
   @ExceptionHandler(MuseumNotFoundException.class)
   public ResponseEntity<String> handleNotFound(RuntimeException e) {
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Museu não encontrado!");
+  }
+
+  @ExceptionHandler(Exception.class)
+  public ResponseEntity<String> handleGenericInternalServerErro() {
+    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro interno!");
   }
 
 }
