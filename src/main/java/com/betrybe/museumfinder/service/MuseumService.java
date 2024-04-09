@@ -12,6 +12,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * This class is responsable to make business rule with data.
+ */
 @Service
 public class MuseumService implements MuseumServiceInterface {
   private final MuseumFakeDatabase database;
